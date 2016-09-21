@@ -196,8 +196,8 @@ right-margin:50%;</string>
        </widget>
       </item>
       <item row="0" column="1">
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="1">
+       <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0" columnstretch="3,1">
+        <item row="1" column="1">
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
            <widget class="QWidget" name="widget_2" native="true">
@@ -243,26 +243,141 @@ right-margin:50%;</string>
           </item>
          </layout>
         </item>
-        <item row="0" column="0">
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <widget class="QLabel" name="heatDescription">
+        <item row="1" column="0">
+         <widget class="QWidget" name="widget_3" native="true">
+          <widget class="QLabel" name="heatDescription">
+           <property name="geometry">
+            <rect>
+             <x>2</x>
+             <y>0</y>
+             <width>296</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Generate population depletion heatmap(s)</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="heatBackrounds">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>60</y>
+             <width>307</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Use map background if avaliable (WIP)</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="heatScale">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>30</y>
+             <width>221</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Scale output Resolution (integer):</string>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="heatScaleValue">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>30</y>
+             <width>48</width>
+             <height>24</height>
+            </rect>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>5</number>
+           </property>
+          </widget>
+          <widget class="QFrame" name="frame_2">
+           <property name="geometry">
+            <rect>
+             <x>310</x>
+             <y>10</y>
+             <width>141</width>
+             <height>71</height>
+            </rect>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QLabel" name="sizeLabel">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>0</y>
+              <width>121</width>
+              <height>20</height>
+             </rect>
+            </property>
             <property name="text">
-             <string>Generate population depletion heatmap(s)</string>
+             <string>Output Size (px):</string>
             </property>
            </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="heatBackrounds">
-            <property name="enabled">
-             <bool>false</bool>
+           <widget class="Line" name="line_4">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>111</width>
+              <height>21</height>
+             </rect>
             </property>
-            <property name="text">
-             <string>Use map background if avaliable (WIP)</string>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
            </widget>
-          </item>
-         </layout>
+           <widget class="QLabel" name="widthDisp">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>30</y>
+              <width>131</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Width:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="heightDisp">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>50</y>
+              <width>131</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Height:</string>
+            </property>
+           </widget>
+          </widget>
+         </widget>
         </item>
        </layout>
       </item>

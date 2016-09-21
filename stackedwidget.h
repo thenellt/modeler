@@ -27,6 +27,10 @@ public:
     parameters* getSetupPointer();
 
     bool checkSetupParams();
+
+signals:
+    void changeToOutput();
+
 public slots:
     void changeIndex(int);
 

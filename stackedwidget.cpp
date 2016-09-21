@@ -18,7 +18,7 @@ StackedWidget::StackedWidget(QWidget *parent) :
     setupMap *map = new setupMap(this, param);
     setupOutput *out = new setupOutput(this, param);
     load = new loadingScreen(this, param);
-    postScreen *post = new postScreen;
+    postScreen *post = new postScreen(this, param);
 
     setup->setParameters(param);
     out->setParameters(param);
@@ -39,6 +39,7 @@ StackedWidget::StackedWidget(QWidget *parent) :
     connect(out, SIGNAL(indexChange(int)), this, SLOT(changeIndex(int)));
     connect(load, SIGNAL(indexChange(int)), this, SLOT(changeIndex(int)));
     connect(post, SIGNAL(quit()), this, SLOT(close()));
+    connect(this, SIGNAL(changeToOutput()), post, SLOT(changedTo()));
     //connect(post, SIGNAL(quit()), this, SLOT(quit()));
 
     setWindowTitle(tr("Population Modeler 1.0"));
@@ -74,6 +75,7 @@ void StackedWidget::changeIndex(int i){
         dynamic_cast<setupMap*>(widget(3))->addVillages(model);
         //setCurrentIndex(5);
         model->runSimulation();
+        emit changeToOutput();
         setCurrentIndex(6);
         //load->setSimulation(model);
     }

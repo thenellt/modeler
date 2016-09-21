@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     lodepng.cpp \
     setupoutput.cpp \
     loadingscreen.cpp \
-    postscreen.cpp
+    postscreen.cpp \
+    advancedoptions.cpp
 
 HEADERS  += mainwindow.h \
     setupsimulation.h \
@@ -37,7 +38,8 @@ HEADERS  += mainwindow.h \
     lodepng.h \
     setupoutput.h \
     loadingscreen.h \
-    postscreen.h
+    postscreen.h \
+    advancedoptions.h
 
 
 FORMS    += mainwindow.ui \
@@ -48,4 +50,5 @@ FORMS    += mainwindow.ui \
     setupmap.ui \
     setupoutput.ui \
     loadingscreen.ui \
-    postscreen.ui
+    postscreen.ui \
+    advancedoptions.ui

@@ -10,6 +10,7 @@
 //
 
 #include <QObject>
+#include "qdebug.h"
 #include <stdio.h>
 #include <iostream>
 #include <vector>
@@ -48,10 +49,12 @@ struct parameters{
     int *output;
 
     parameters(){
-        output = new int[4];
+        output = new int[5]; //create heatmap(s), csv(s), config, population file, heatmap scale
         for(int i = 0; i < 4; i++){
             output[i] = 0;
         }
+
+        output[4] = 1; //heatmap scale initially 1x
     };
 
     ~parameters(){

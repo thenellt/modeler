@@ -50,6 +50,9 @@ void selectWorkingDirectory::on_name_returnPressed()
     if(ui->name->text().length() > 0){
         setup->name = ui->name->text().toStdString();
         name = true;
+        if(!dir){
+            on_pushButton_pressed();
+        }
     }
     if(name && dir){
         emit indexChange(2);

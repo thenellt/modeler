@@ -29,6 +29,14 @@ void setupOutput::on_heatmapCheck_toggled(bool checked)
     if(checked){
         ui->heatAll->setEnabled(true);
         ui->heatFinal->setEnabled(true);
+        ui->heatScale->setEnabled(true);
+
+        if(ui->heatScale->isChecked()){
+            ui->heatScaleValue->setEnabled(true);
+        }
+
+        ui->widthDisp->setText("Width: " + QString::number(setup->x * ui->heatScaleValue->value()) + "px");
+        ui->heightDisp->setText("Height: " + QString::number(setup->y * ui->heatScaleValue->value()) + "px");
 
         if(ui->heatAll->isChecked()){
             setup->output[0] = 1;
@@ -40,6 +48,11 @@ void setupOutput::on_heatmapCheck_toggled(bool checked)
     else{
         ui->heatAll->setEnabled(false);
         ui->heatFinal->setEnabled(false);
+        ui->heatScale->setEnabled(false);
+        ui->heatScaleValue->setEnabled(false);
+
+        ui->widthDisp->setText("Width: ");
+        ui->heightDisp->setText("Height: ");
 
         setup->output[0] = 0;
     }
@@ -116,4 +129,27 @@ void setupOutput::on_popCheck_toggled(bool checked)
 void setupOutput::on_run_pressed()
 {
     emit indexChange(5);
+}
+
+void setupOutput::on_heatScale_toggled(bool checked)
+{
+    if(checked){
+        ui->heatScaleValue->setEnabled(true);
+        setup->output[4] = ui->heatScaleValue->value();
+    }
+    else{
+        setup->output[4] = 1;
+        ui->heatScaleValue->setDisabled(true);
+    }
+    qDebug() << "heatmap scale: " << setup->output[4];
+}
+
+void setupOutput::on_heatScaleValue_valueChanged(int arg1)
+{
+    qDebug() << "heatmap scale: " << ui->heatScaleValue->value();
+    setup->output[4] = ui->heatScaleValue->value();
+
+    ui->widthDisp->setText("Width: " + QString::number(setup->x * ui->heatScaleValue->value()) + "px");
+    ui->heightDisp->setText("Height: " + QString::number(setup->y * ui->heatScaleValue->value()) + "px");
+
 }

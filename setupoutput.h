@@ -36,6 +36,10 @@ private slots:
 
     void on_run_pressed();
 
+    void on_heatScale_toggled(bool checked);
+
+    void on_heatScaleValue_valueChanged(int arg1);
+
 private:
     Ui::setupOutput *ui;
     parameters *setup;

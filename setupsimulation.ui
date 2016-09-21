@@ -295,6 +295,19 @@
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="advancedOptions">
+   <property name="geometry">
+    <rect>
+     <x>362</x>
+     <y>560</y>
+     <width>141</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Advanced Options</string>
+   </property>
+  </widget>
  </widget>
  <tabstops>
   <tabstop>explanationText</tabstop>

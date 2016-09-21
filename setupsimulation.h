@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QString>
 #include <iostream>
+#include "qdebug.h"
+#include "advancedoptions.h"
 #include "modeler.h"
 
 namespace Ui {
@@ -21,13 +23,13 @@ public:
     bool checkReady();
 
     void setParameters(parameters*);
-    void checkParameters();
+    int checkParameters();
 
 signals:
     void indexChange(int i);
 
 public slots:
-
+    void advDialogClosed();
     //void testButton();
 
 private slots:
@@ -65,11 +67,33 @@ private slots:
 
     void on_longValue_editingFinished();
 
+    void on_advancedOptions_pressed();
+
+    void on_durationValue_returnPressed();
+
+    void on_carryValue_returnPressed();
+
+    void on_rangeValue_returnPressed();
+
+    void on_huntValue_returnPressed();
+
+    void on_killValue_returnPressed();
+
+    void on_heightValue_returnPressed();
+
+    void on_widthValue_returnPressed();
+
+    void on_latValue_returnPressed();
+
+    void on_longValue_returnPressed();
+
 private:
     Ui::SetupSimulation *ui;
     parameters *setup;
     bool ready;
+    bool dialogOpen;
     bool *checked;
+    QDialog *advanced;
 };
 
 #endif // SETUPSIMULATION_H

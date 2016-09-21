@@ -113,7 +113,7 @@ void setupMap::on_add_pressed()
     QString testName = ui->nameValue->text();
     if(testName.length()!= 0){
         for(int i = 0; i < testName.length(); i++){
-            if(!testName.at(i).isLetter()){
+            if(!(testName.at(i).isLetter() || testName.at(i).isNumber())){
                 ui->name->setText("<font color='red'>Name:</font>");
                 goodName = false;
                 break;
@@ -181,6 +181,7 @@ void setupMap::on_add_pressed()
             ui->add->setText("Add");
             ui->clear->setDisabled(false);
             ui->continue_2->setEnabled(true);
+            ui->nameValue->setFocus();
         }
     }
     else{
@@ -216,6 +217,7 @@ void setupMap::on_add_pressed()
             ui->population->setText("<font color='black'>Population:</font>");
 
             ui->continue_2->setEnabled(true);
+            ui->nameValue->setFocus();
         }
     }
 }
@@ -275,7 +277,7 @@ void setupMap::addVillages(processor* simulation){
         tX = ui->table->item(i, 2)->text().toInt(&test, 10);
         tY = ui->table->item(i, 3)->text().toInt(&test, 10);
         std::cout << "i: " << i << " name: " << tName << " pop: " << tPop << " x: " << tX << " y: " << tY << std::endl;
-        simulation->addVillage(new village(tX, tY, tPop, 0, tName));
+        simulation->addVillage(new village(tX, setup->y - tY, tPop, 0, tName));
     }
 }
 
